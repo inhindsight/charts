@@ -3,7 +3,7 @@ entries:
   hindsight:
   - apiVersion: v2
     appVersion: 0.0.3
-    created: "2020-05-12T08:53:30.260114-04:00"
+    created: "2020-05-12T15:59:14.71431-04:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -24,7 +24,7 @@ entries:
       repository: https://vernemq.github.io/docker-vernemq
       version: 1.6.2
     description: A data ingestion engine
-    digest: 9134b75288c766ad03dfbe73ab22135c7331282edc1b6818a698f11d16dbbf14
+    digest: 3dfb9b1cf85c8c30541a699682e9bf1873f0a6d82ccdb32df6c39c55365d23ea
     home: https://github.com/inhindsight
     name: hindsight
     sources:
@@ -33,4 +33,4 @@ entries:
     urls:
     - hindsight-0.1.0.tgz
     version: 0.1.0
-generated: "2020-05-12T08:53:30.22318-04:00"
+generated: "2020-05-12T15:59:14.672819-04:00"
