@@ -33,9 +33,6 @@ spec:
             - start
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - name: http
-              containerPort: 80
-              protocol: TCP
             - name: metrics
               containerPort: 9568
               protocol: TCP

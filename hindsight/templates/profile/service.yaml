@@ -8,10 +8,6 @@ metadata:
 spec:
   type: {{ .Values.profile.service.type }}
   ports:
-    - port: {{ .Values.profile.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
     - port: 9568
       targetPort: metrics
       protocol: TCP
