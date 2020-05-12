@@ -8,6 +8,8 @@ receive:
     port: 80
 gather:
   replicaCount: 1
+profile:
+  replicaCount: 1
 broadcast:
   replicaCount: 1
   service:
