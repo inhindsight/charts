@@ -3,7 +3,7 @@
 mkdir tmp_charts
 mkdir -p docs
 
-helm package charts -u -d tmp_charts
+helm package hindsight -u -d tmp_charts
 helm repo index --merge index.yaml tmp_charts
 
 mv tmp_charts/*.tgz docs/
