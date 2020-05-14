@@ -11,8 +11,12 @@ helm upgrade hindsight inhindsight/hindsight \
      --install \
      --version 0.1.0 \
      --namespace default \
+     --set image.tag=latest \
      # --set overrides
+```
 
 ### Maintaining this chart
 
-TODO: Dont forget to fill this in  
+Upon updating chart artifacts inside the ./hindsight directory, you must run ./package.sh to generate new artifacts.
+
+These artifacts will be generated according to the version in ./hindsight/Chart.yaml so in most cases this version should be updated before running ./package.sh.  The generated tars and index.yaml in the ./docs directory are what are served upon installing this chart using the usage instructions above
