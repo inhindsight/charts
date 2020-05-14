@@ -1,0 +1,13 @@
+on:
+  pull_request:
+    types: [opened]
+    paths:
+    - '**.*'
+
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prints Hello
+        run: |
+            echo "sup"
