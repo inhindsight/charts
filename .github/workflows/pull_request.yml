@@ -1,13 +1,18 @@
 on:
   pull_request:
-    types: [opened]
     paths:
-    - '**.*'
+    - 'hindsight/**'
 
 jobs:
   Test:
     runs-on: ubuntu-latest
     steps:
-      - name: Prints Hello
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Fails if changes to chart do not also release chart
         run: |
-            echo "sup"
+          echo $GITHUB_SHA
+          echo $GITHUB_REF
+          echo $GITHUB_CONTEXT
+
