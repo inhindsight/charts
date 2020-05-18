@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -eo pipefail
+
 mkdir tmp_charts
 mkdir -p docs
 
