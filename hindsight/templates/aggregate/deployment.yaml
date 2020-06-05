@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "hindsight.fullname" . }}-aggregate
+  labels:
+    {{- include "hindsight.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.aggregate.replicaCount }}
+  selector:
+    matchLabels:
+      app: hindsight-aggregate
+      {{- include "hindsight.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        app: hindsight-aggregate
+        {{- include "hindsight.selectorLabels" . | nindent 8 }}
+    spec:
+    {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      serviceAccountName: {{ include "hindsight.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}-aggregate
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: {{ template "hindsight.image" . }}
+          command:
+            - aggregate/bin/aggregate
+            - start
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: metrics
+              containerPort: 9568
+              protocol: TCP
+          env:
+            - name: KAFKA_ENDPOINTS
+              value: {{ template "hindsight.fullname" . }}-kafka-bootstrap:9092
+            - name: REDIS_HOST
+              value: {{ template "redis.host" . }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}

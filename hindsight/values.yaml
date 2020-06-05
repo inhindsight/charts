@@ -10,6 +10,8 @@ gather:
   replicaCount: 1
 profile:
   replicaCount: 1
+aggregate:
+  replicaCount: 1
 broadcast:
   replicaCount: 1
   service:

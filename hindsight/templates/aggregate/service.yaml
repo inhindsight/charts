@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "hindsight.fullname" . }}-aggregate
+  labels:
+    app: hindsight-aggregate
+    {{- include "hindsight.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.aggregate.service.type }}
+  ports:
+    - port: 9568
+      targetPort: metrics
+      protocol: TCP
+      name: metrics
+  selector:
+    app: hindsight-aggregate
+    {{- include "hindsight.selectorLabels" . | nindent 4 }}
