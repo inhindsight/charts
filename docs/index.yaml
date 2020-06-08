@@ -3,7 +3,7 @@ entries:
   hindsight:
   - apiVersion: v2
     appVersion: 0.0.3
-    created: "2020-05-12T15:59:14.71431-04:00"
+    created: "2020-06-08T11:24:39.473955-04:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -24,7 +24,39 @@ entries:
       repository: https://vernemq.github.io/docker-vernemq
       version: 1.6.2
     description: A data ingestion engine
-    digest: 3dfb9b1cf85c8c30541a699682e9bf1873f0a6d82ccdb32df6c39c55365d23ea
+    digest: f7e8ad99f3345c1325b0b1cf779e44484c1475b0afb162029ecb5e63d9697870
+    home: https://github.com/inhindsight
+    name: hindsight
+    sources:
+    - https://github.com/inhindsight/hindsight
+    type: application
+    urls:
+    - hindsight-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 0.0.3
+    created: "2020-05-14T14:29:34.749452-04:00"
+    dependencies:
+    - condition: redis.enabled
+      name: redis
+      repository: https://kubernetes-charts.storage.googleapis.com
+      version: 10.5.7
+    - name: nginx-ingress
+      repository: https://kubernetes-charts.storage.googleapis.com
+      version: 1.36.0
+    - condition: prometheus-operator.enabled
+      name: prometheus-operator
+      repository: https://kubernetes-charts.storage.googleapis.com
+      version: 8.12.12
+    - condition: cert_manager.enabled
+      name: cert-manager
+      repository: https://charts.jetstack.io
+      version: 0.14.2
+    - name: vernemq
+      repository: https://vernemq.github.io/docker-vernemq
+      version: 1.6.2
+    description: A data ingestion engine
+    digest: d0ad0c133267719c4e71454d4fba72edc01c60bd1adffc0e98940ca4ad8c4ee1
     home: https://github.com/inhindsight
     name: hindsight
     sources:
@@ -33,4 +65,4 @@ entries:
     urls:
     - hindsight-0.1.0.tgz
     version: 0.1.0
-generated: "2020-05-12T15:59:14.672819-04:00"
+generated: "2020-06-08T11:24:39.442027-04:00"

@@ -9,6 +9,6 @@ helm package hindsight -u -d tmp_charts
 helm repo index --merge index.yaml tmp_charts
 
 mv tmp_charts/*.tgz docs/
-mv tmp_charts/index.yaml index.yaml
+mv tmp_charts/index.yaml ./docs/index.yaml
 
 rm -rf tmp_charts
